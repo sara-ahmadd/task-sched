@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+# Task Scheduler App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+- The Task Scheduler App is a simple yet powerful application designed to help you manage and schedule your tasks efficiently. This application allows users to create, view, update, and delete tasks, ensuring you stay organized and on top of your to-do list.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Add Task: Create new tasks with details such as title, description, due date, and priority.
+- View Tasks: View a list of all scheduled tasks.
+- Update Task: Edit the details of existing tasks.
+- Delete Task: Remove tasks that are no longer needed.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Getting Started
 
-- Configure the top-level `parserOptions` property like this:
+### Prerequisites
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Ensure you have the following software installed:
+  - Node.js (v12.x or later)
+  - npm (v6.x or later)
+  - Installation
+  - Clone the repository:
+  ```
+    git clone https://github.com/your-username/task-scheduler-app.git
+    cd task-scheduler-app
+  ```
+  - Install dependencies:
+  ```
+    npm install
+  ```
+  - Running the Application
+    Start the development server:
+  ```
+    npm start
+  ```
+  - Open your browser and navigate to: http://localhost:3000
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Usage
+
+- Adding a Task
+  - Click on the "Add Task" button.
+  - Fill in the task details in the form.
+  - Click "Submit" to add the task to your list.
+- Viewing Tasks
+  - Navigate to the "Tasks" section to see all your scheduled tasks.
+- Updating a Task
+  - Click on the edit icon on the row of the task you want to edit.
+  - Modify the task details in the form.
+  - Click "Submit" to save changes.
+- Deleting a Task
+  - Click on the delete icon on the row of the task you want to delete.
+  - Click the "Delete" button to remove the task from your list.
