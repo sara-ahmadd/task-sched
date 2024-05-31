@@ -1,0 +1,28 @@
+.padding {
+  padding: 0 50px;
+}
+.active {
+  background-color: #3182ce;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 7px;
+}
+.landing-page {
+  background-image: url("./assets/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow-y: clip;
+}
+.page-dimensions {
+  width: 90vw;
+  height: 90vh;
+  margin: 0 auto;
+}
+@media (max-width: 425px) {
+  .padding {
+    padding: 0 10px;
+  }
+}
