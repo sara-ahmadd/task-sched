@@ -69,76 +69,78 @@ function TaskDetails() {
     }
   };
   return (
-    <form
-      onSubmit={methods.handleSubmit(onSubmit)}
-      className="flex flex-col justify-start items-center gap-3 p-5 my-3 w-full md:w-1/2 bg-white mx-auto text-text"
-    >
-      <h3 className="text-center font-medium text-xl">Edit task</h3>
-      <FormProvider {...methods}>
-        <InputField
-          label={"Title"}
-          id={"title"}
-          placeholder={"Enter your task title"}
-          type={"text"}
-          register={methods.register("title", {
-            required: "Title is required.",
-          })}
-        />
-        <div className="flex flex-col justify-start items-start gap-3 min-w-[200px] max-w-[300px] md:w-[375px]">
-          <label htmlFor="description">Task Description</label>
-          <textarea
-            className="outline-none border-[1px] border-disapled rounded-md text-black p-2  w-full"
-            {...methods.register("description")}
+    <div className="page-dimensions">
+      <form
+        onSubmit={methods.handleSubmit(onSubmit)}
+        className="flex flex-col justify-start items-center gap-3 p-5 my-3 w-full md:w-1/2 bg-white mx-auto text-text"
+      >
+        <h3 className="text-center font-medium text-xl">Edit task</h3>
+        <FormProvider {...methods}>
+          <InputField
+            label={"Title"}
+            id={"title"}
+            placeholder={"Enter your task title"}
+            type={"text"}
+            register={methods.register("title", {
+              required: "Title is required.",
+            })}
           />
-        </div>
-        <select
-          id="priority"
-          {...methods.register("priority", {
-            required: "Priority is requiired",
-          })}
-          className="outline-none border-[1px] border-disapled rounded-md text-black p-2 max-w-[300px] md:w-[375px]"
-        >
-          <option value="">Select priority...</option>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-        </select>
+          <div className="flex flex-col justify-start items-start gap-3 min-w-[200px] max-w-[300px] md:w-[375px]">
+            <label htmlFor="description">Task Description</label>
+            <textarea
+              className="outline-none border-[1px] border-disapled rounded-md text-black p-2  w-full"
+              {...methods.register("description")}
+            />
+          </div>
+          <select
+            id="priority"
+            {...methods.register("priority", {
+              required: "Priority is requiired",
+            })}
+            className="outline-none border-[1px] border-disapled rounded-md text-black p-2 max-w-[300px] md:w-[375px]"
+          >
+            <option value="">Select priority...</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
 
-        <input
-          type="date"
-          {...methods.register("dueDate", {
-            required: "Due date is required",
-          })}
-          min={new Date().toISOString().split("T")[0]}
-          className="outline-none border-[1px] border-disapled rounded-md p-2 max-w-[300px] md:w-[375px]"
-        />
-        <div className="flex justify-start items-center gap-3">
-          <input type="checkbox" id="state" {...methods.register("status")} />
-          <label htmlFor="state">Status</label>
+          <input
+            type="date"
+            {...methods.register("dueDate", {
+              required: "Due date is required",
+            })}
+            min={new Date().toISOString().split("T")[0]}
+            className="outline-none border-[1px] border-disapled rounded-md p-2 max-w-[300px] md:w-[375px]"
+          />
+          <div className="flex justify-start items-center gap-3">
+            <input type="checkbox" id="state" {...methods.register("status")} />
+            <label htmlFor="state">Status</label>
+          </div>
+        </FormProvider>
+        <div className="flex justify-center items-center gap-3">
+          <Btn>Submit</Btn>
+          <button
+            type="button"
+            onClick={() => navigate("/tasks")}
+            className="border-[1px] border-text rounded-md px-3 py-2 capitalize txt-text"
+          >
+            cancel
+          </button>
+          <button
+            type="button"
+            onClick={async () => {
+              deleteTaskWithId(params?.id as string).then(() => {
+                navigate("/tasks");
+              });
+            }}
+            className="border-[1px] transition-all hover:bg-dark_red hover:text-white rounded-md px-3 py-2 capitalize text-dark_red border-dark_red"
+          >
+            Delete Task
+          </button>
         </div>
-      </FormProvider>
-      <div className="flex justify-center items-center gap-3">
-        <Btn>Submit</Btn>
-        <button
-          type="button"
-          onClick={() => navigate("/tasks")}
-          className="border-[1px] border-text rounded-md px-3 py-2 capitalize txt-text"
-        >
-          cancel
-        </button>
-        <button
-          type="button"
-          onClick={async () => {
-            deleteTaskWithId(params?.id as string).then(() => {
-              navigate("/tasks");
-            });
-          }}
-          className="border-[1px] transition-all hover:bg-dark_red hover:text-white rounded-md px-3 py-2 capitalize text-dark_red border-dark_red"
-        >
-          Delete Task
-        </button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 

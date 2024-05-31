@@ -40,52 +40,54 @@ function Login() {
     return <Navigate to="/tasks" state={{ path: location.pathname }} />;
   } else {
     return (
-      <form
-        onSubmit={methods.handleSubmit(onSubmit)}
-        className="flex flex-col justify-start items-center gap-3 p-5 my-3 w-[90%] md:w-1/2 bg-white mx-auto text-text"
-      >
-        <h3 className="text-center font-medium text-xl">
-          Login to your account
-        </h3>
-        <FormProvider {...methods}>
-          <InputField
-            label={"Email"}
-            id={"email"}
-            placeholder={"Enter your email"}
-            type={"email"}
-            register={methods.register("email", {
-              required: "Email is required.",
-            })}
-          />
-          <div className="relative w-fit min-h-[100px]">
+      <div className=" page-dimensions">
+        <form
+          onSubmit={methods.handleSubmit(onSubmit)}
+          className="flex flex-col justify-start items-center gap-3 p-5 my-3 w-[90%] md:w-1/2 bg-white mx-auto text-text"
+        >
+          <h3 className="text-center font-medium text-xl">
+            Login to your account
+          </h3>
+          <FormProvider {...methods}>
             <InputField
-              label={"Password"}
-              id={"password"}
-              placeholder={"Enter your password"}
-              type={showPassword ? "text" : "password"}
-              register={methods.register("password", {
-                required: "Password is required.",
+              label={"Email"}
+              id={"email"}
+              placeholder={"Enter your email"}
+              type={"email"}
+              register={methods.register("email", {
+                required: "Email is required.",
               })}
             />
-            <span
-              role="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute top-[40%] right-3"
-            >
-              {showPassword ? <FaEye /> : <FaEyeSlash />}
-            </span>
+            <div className="relative w-fit min-h-[100px]">
+              <InputField
+                label={"Password"}
+                id={"password"}
+                placeholder={"Enter your password"}
+                type={showPassword ? "text" : "password"}
+                register={methods.register("password", {
+                  required: "Password is required.",
+                })}
+              />
+              <span
+                role="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute top-[40%] right-3"
+              >
+                {showPassword ? <FaEye /> : <FaEyeSlash />}
+              </span>
+            </div>
+          </FormProvider>
+          <Btn>Submit</Btn>
+          <div className="text-center capitalize">
+            <p>
+              Not a member?{" "}
+              <Link to={"/register"} className="underline">
+                register now
+              </Link>
+            </p>
           </div>
-        </FormProvider>
-        <Btn>Submit</Btn>
-        <div className="text-center capitalize">
-          <p>
-            Not a member?{" "}
-            <Link to={"/register"} className="underline">
-              register now
-            </Link>
-          </p>
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 }

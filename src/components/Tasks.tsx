@@ -101,7 +101,7 @@ function Tasks() {
 
   const [showModal, setShowModal] = useState(false);
   return (
-    <div className="px-5">
+    <div className="page-dimensions">
       <div className="mx-auto">
         <div className="w-full flex justify-between items-center p-5 flex-wrap">
           <h1 className="text-2xl font-bold mb-4 text-text text-center">

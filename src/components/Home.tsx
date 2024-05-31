@@ -13,7 +13,7 @@ function Home() {
     return <Navigate to="/tasks" state={{ path: location.pathname }} />;
   } else {
     return (
-      <div className="flex justify-center items-center">
+      <div className="page-dimensions flex justify-center items-center">
         <div className="p-5 bg-white rounded-md shadow-lg flex flex-col justify-center items-center gap-5">
           <p className="w-1/2 mx-auto text-center text-text font-medium ">
             Stay Organized and Boost Your Productivity with Our Task Scheduler

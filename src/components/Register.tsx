@@ -48,95 +48,97 @@ function Register() {
     return <Navigate to="/tasks" state={{ path: location.pathname }} />;
   } else {
     return (
-      <form
-        onSubmit={methods.handleSubmit(onSubmit)}
-        className="flex flex-col justify-start items-center gap-3 p-5 my-3 w-[90%] md:w-1/2 bg-white mx-auto  text-text"
-      >
-        <h3 className="text-center font-medium text-xl">Register now</h3>
-        <FormProvider {...methods}>
-          {/* first & last names */}
-          <InputField
-            label={"First Name"}
-            id={"firstName"}
-            placeholder={"Enter your first name"}
-            type={"text"}
-            register={methods.register("firstName", {
-              required: "First name is required.",
-            })}
-          />
-          <InputField
-            label={"Last Name"}
-            id={"lastName"}
-            placeholder={"Enter your last name"}
-            type={"text"}
-            register={methods.register("lastName")}
-          />
+      <div className=" page-dimensions">
+        <form
+          onSubmit={methods.handleSubmit(onSubmit)}
+          className="flex flex-col justify-start items-center gap-3 p-5 my-3 w-[90%] md:w-1/2 bg-white mx-auto  text-text"
+        >
+          <h3 className="text-center font-medium text-xl">Register now</h3>
+          <FormProvider {...methods}>
+            {/* first & last names */}
+            <InputField
+              label={"First Name"}
+              id={"firstName"}
+              placeholder={"Enter your first name"}
+              type={"text"}
+              register={methods.register("firstName", {
+                required: "First name is required.",
+              })}
+            />
+            <InputField
+              label={"Last Name"}
+              id={"lastName"}
+              placeholder={"Enter your last name"}
+              type={"text"}
+              register={methods.register("lastName")}
+            />
 
-          <InputField
-            label={"Email"}
-            id={"email"}
-            placeholder={"Enter your email"}
-            type={"email"}
-            register={methods.register("email", {
-              required: "Email is required.",
-            })}
-          />
-          <div className="relative w-fit min-h-[100px]">
             <InputField
-              label={"Password"}
-              id={"password"}
-              placeholder={"Enter your password"}
-              type={showPassword ? "text" : "password"}
-              register={methods.register("password", {
-                required: "Password is required.",
+              label={"Email"}
+              id={"email"}
+              placeholder={"Enter your email"}
+              type={"email"}
+              register={methods.register("email", {
+                required: "Email is required.",
               })}
             />
-            <span
-              role="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute top-[40%] right-3"
-            >
-              {showPassword ? <FaEye /> : <FaEyeSlash />}
-            </span>
+            <div className="relative w-fit min-h-[100px]">
+              <InputField
+                label={"Password"}
+                id={"password"}
+                placeholder={"Enter your password"}
+                type={showPassword ? "text" : "password"}
+                register={methods.register("password", {
+                  required: "Password is required.",
+                })}
+              />
+              <span
+                role="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute top-[40%] right-3"
+              >
+                {showPassword ? <FaEye /> : <FaEyeSlash />}
+              </span>
+            </div>
+            <div className="relative w-fit min-h-[100px]">
+              <InputField
+                label={"Confirm Password"}
+                id={"confirmPassword"}
+                placeholder={"Enter confirm password"}
+                type={showConfirmPassword ? "text" : "password"}
+                register={methods.register("confirmPassword", {
+                  required: "Confirm Password is required.",
+                  onChange: (e: ChangeEvent<HTMLInputElement>) => {
+                    if (e.target.value !== methods.watch("password")) {
+                      methods.setError("confirmPassword", {
+                        message: "Passwords don't match",
+                      });
+                    } else {
+                      methods.clearErrors("confirmPassword");
+                    }
+                  },
+                })}
+              />
+              <span
+                role="button"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                className="absolute top-[40%] right-3"
+              >
+                {showPassword ? <FaEye /> : <FaEyeSlash />}
+              </span>
+            </div>
+          </FormProvider>
+          <Btn>Submit</Btn>
+          <div className="text-center capitalize">
+            <p>
+              already a member?{" "}
+              <Link to={"/login"} className="underline">
+                Login to your account
+              </Link>
+            </p>
           </div>
-          <div className="relative w-fit min-h-[100px]">
-            <InputField
-              label={"Confirm Password"}
-              id={"confirmPassword"}
-              placeholder={"Enter confirm password"}
-              type={showConfirmPassword ? "text" : "password"}
-              register={methods.register("confirmPassword", {
-                required: "Confirm Password is required.",
-                onChange: (e: ChangeEvent<HTMLInputElement>) => {
-                  if (e.target.value !== methods.watch("password")) {
-                    methods.setError("confirmPassword", {
-                      message: "Passwords don't match",
-                    });
-                  } else {
-                    methods.clearErrors("confirmPassword");
-                  }
-                },
-              })}
-            />
-            <span
-              role="button"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute top-[40%] right-3"
-            >
-              {showPassword ? <FaEye /> : <FaEyeSlash />}
-            </span>
-          </div>
-        </FormProvider>
-        <Btn>Submit</Btn>
-        <div className="text-center capitalize">
-          <p>
-            already a member?{" "}
-            <Link to={"/login"} className="underline">
-              Login to your account
-            </Link>
-          </p>
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 }
