@@ -1,4 +1,3 @@
-import React from "react";
 import { UseFormRegisterReturn, useFormContext } from "react-hook-form";
 
 function InputField({

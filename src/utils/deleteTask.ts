@@ -23,7 +23,7 @@ export const deleteTaskWithId = async (id: string) => {
       cancelButtonText: "Cancel",
     });
     if (res.isConfirmed) {
-      deleteTask(id).then((doc) => {
+      deleteTask(id).then(() => {
         toast.success("Task is deleted sucessfully.");
       });
     }
