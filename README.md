@@ -24,12 +24,12 @@
     git clone https://github.com/your-username/task-scheduler-app.git
     cd task-scheduler-app
   ```
-  - Install dependencies:
+- Install dependencies:
   ```
     npm install
   ```
-  - Running the Application
-    Start the development server:
+- Running the Application
+  Start the development server:
   ```
     npm start
   ```
