@@ -3,9 +3,12 @@
 ## Overview
 
 - The Task Scheduler App is a simple yet powerful application designed to help you manage and schedule your tasks efficiently. This application allows users to create, view, update, and delete tasks, ensuring you stay organized and on top of your to-do list.
+- Only the authenticated user can use this app.
 
 ## Features
 
+- Sign up to the app.
+- login to your account to be able to use this app.
 - Add Task: Create new tasks with details such as title, description, due date, and priority.
 - View Tasks: View a list of all scheduled tasks.
 - Update Task: Edit the details of existing tasks.
