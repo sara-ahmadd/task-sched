@@ -24,7 +24,7 @@
 - Installation
   - Clone the repository:
   ```
-    git clone https://github.com/your-username/task-scheduler-app.git
+    git clone https://github.com/sara-ahmadd/task-sched
     cd task-scheduler-app
   ```
   - Install dependencies:
