@@ -17,7 +17,7 @@
   overflow-y: clip;
 }
 .page-dimensions {
-  width: 90vw;
+  width: 80%;
   height: 90vh;
   margin: 0 auto;
 }
