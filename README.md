@@ -29,7 +29,7 @@
     npm install
   ```
 - Running the Application
-  Start the development server:
+  - Start the development server:
   ```
     npm start
   ```
