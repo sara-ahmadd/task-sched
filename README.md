@@ -18,13 +18,13 @@
 - Ensure you have the following software installed:
   - Node.js (v12.x or later)
   - npm (v6.x or later)
-  - Installation
+- Installation
   - Clone the repository:
   ```
     git clone https://github.com/your-username/task-scheduler-app.git
     cd task-scheduler-app
   ```
-- Install dependencies:
+  - Install dependencies:
   ```
     npm install
   ```
