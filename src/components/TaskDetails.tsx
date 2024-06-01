@@ -118,7 +118,7 @@ function TaskDetails() {
             <label htmlFor="state">Status</label>
           </div>
         </FormProvider>
-        <div className="flex justify-center items-center gap-3">
+        <div className="flex justify-center items-center gap-3 flex-wrap">
           <Btn>Submit</Btn>
           <button
             type="button"
