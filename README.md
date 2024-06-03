@@ -34,7 +34,7 @@
 - Running the Application
   - Start the development server:
   ```
-    npm start
+    npm dev
   ```
   - Open your browser and navigate to: http://localhost:3000
 
